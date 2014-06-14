@@ -53,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Functional\Arm\ArmAdapter.cs" />
+    <Compile Include="Functional\Arm\IArm.cs" />
     <Compile Include="Functional\FunctionalFaccade.cs" />
     <Compile Include="Functional\Image\Data\IKnowledgeEntity.cs" />
     <Compile Include="Functional\Image\Data\IKnowledgeSource.cs" />
@@ -105,6 +107,7 @@
     <Compile Include="Functional\Positioner\Direction.cs" />
     <Compile Include="Functional\Positioner\Positioner.cs" />
     <Compile Include="Functional\Skeletal\Condition\ConditionGroup.cs" />
+    <Compile Include="Functional\Skeletal\Tracking\SkeletalSelector.cs" />
     <Compile Include="Functional\Skeletal\Tracking\SkeletalTracker.cs" />
     <Compile Include="Functional\Speech\Recognition\GRRecognizeUpdateCompletedEventArgs.cs" />
     <Compile Include="Functional\Speech\Recognition\IGrammarGroup.cs" />
@@ -118,6 +121,9 @@
     <Compile Include="Functional\Speech\Recognition\UpdateGrammarRequest.cs" />
     <Compile Include="Functional\Speech\Synthesis\ISpeechSynthesizer.cs" />
     <Compile Include="Functional\Speech\Synthesis\SpeechSynthesizer.cs" />
+    <Compile Include="Logical\Arm\IArm.cs" />
+    <Compile Include="Logical\Arm\NoArm.cs" />
+    <Compile Include="Logical\Arm\SerialArm.cs" />
     <Compile Include="Logical\LogicalFaccade.cs" />
     <Compile Include="Logical\Navigator\NoNavigator.cs" />
     <Compile Include="Logical\Navigator\INavigator.cs" />

@@ -5,6 +5,7 @@ using Microsoft.Speech.Synthesis;
 using System.Globalization;
 
 using LRFLibrary.Logical.Navigator;
+using LRFLibrary.Logical.Arm;
 
 namespace LRFLibrary.Logical
 {
@@ -28,10 +29,21 @@ namespace LRFLibrary.Logical
         {
             if (navigator == null)
             {
-                navigator = new SerialNavigator("COM5", 19200, 8);
-                //navigator = new NoNavigator();
+                //navigator = new SerialNavigator("COM5", 19200, 8);
+                navigator = new NoNavigator();
             }
             return navigator;
+        }
+
+        private IArm _arm;
+        public IArm Arm()
+        {
+            if (_arm != null)
+            {
+                //_arm = new SerialArm("COM5", 19200, 8);
+                _arm = new NoArm();
+            }
+            return _arm;
         }
 
         private KinectSensor sensor;

@@ -12,6 +12,8 @@ namespace LRFLibrary.Functional
     using Speech.Recognition;
     using Speech.Synthesis;
     using Image.Recognizer;
+    using LRFLibrary.Functional.Arm;
+    using Skeletal.Condition;
 
     public class FunctionalFaccade
     {
@@ -41,6 +43,16 @@ namespace LRFLibrary.Functional
                 tracker = new SkeletalTracker(logicalFaccade.Kinect());
             }
             return tracker;
+        }
+
+        private SkeletalSelector selector;
+        public SkeletalSelector SkeletalSelector()
+        {
+            if (selector == null)
+            {
+                selector = new SkeletalSelector(SkeletalTracker(), new OneHandUp(), new NoHands() );
+            }
+            return selector;
         }
 
         private Positioner.Positioner positioner;
@@ -95,6 +107,16 @@ namespace LRFLibrary.Functional
                 speechSynthesizer = new SpeechSynthesizer(logicalFaccade.SpeechSynthesizer());
             }
             return speechSynthesizer;
+        }
+
+        private IArm arm;
+        public IArm Arm ()
+        {
+            if (this.arm == null)
+            {
+                this.arm = new ArmAdapter(logicalFaccade.Arm());
+            }
+            return this.arm;
         }
     }
 }

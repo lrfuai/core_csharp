@@ -16,6 +16,10 @@ namespace LRFLibrary.Functional.Modules
         public Skeleton[] Skeltons { get; private set; }
         protected Skeleton trackedSkeleton;
 
+        public event EventHandler<SkeletonArgs> OnSkeletonTracked;
+        public event EventHandler<EventArgs> onSkeletonNotTracked;
+        public event EventHandler<SkeletonArgs> onSkeletonUpdated;
+
         public PeopleFollowerModule(SkeletalTracker tracker, INavigator navigator)
         {
             this.tracker = tracker;
@@ -49,6 +53,10 @@ namespace LRFLibrary.Functional.Modules
                     if (skel.TrackingState == SkeletonTrackingState.Tracked && trackedSkeleton.TrackingId.Equals(skel.TrackingId))
                     {
                         trackedSkeleton = skel;
+                        if (this.onSkeletonUpdated != null)
+                        {
+                            this.onSkeletonUpdated(this, new SkeletonArgs(trackedSkeleton));
+                        }
                     }
                 }
             }
@@ -81,11 +89,20 @@ namespace LRFLibrary.Functional.Modules
                     {
                         this.tracker.Track(skel);
                         trackedSkeleton = skel;
+                        if (this.OnSkeletonTracked != null)
+                        {
+                            this.OnSkeletonTracked(this, new SkeletonArgs(trackedSkeleton));
+                        }
                     }
                     if (decline.apply(skel))
                     {
                         this.tracker.NoTrack();
                         trackedSkeleton = null;
+
+                        if (this.onSkeletonNotTracked != null)
+                        {
+                            this.onSkeletonNotTracked(this, new EventArgs());
+                        }
                     }
                 }
             }
@@ -93,6 +110,10 @@ namespace LRFLibrary.Functional.Modules
             {
                 tracker.NoTrack();
                 trackedSkeleton = null;
+                if (this.onSkeletonNotTracked != null)
+                {
+                    this.onSkeletonNotTracked(this, new EventArgs());
+                }
             }
         }
 
@@ -108,6 +129,23 @@ namespace LRFLibrary.Functional.Modules
             tracker.SkeletonFrameReady -= PeopleFollower_SkeletonFrameReady;
             tracker.NoTrack();
             tracker.Disable();
+        }
+
+        public class SkeletonArgs : EventArgs
+        {
+            Skeleton skel;
+            public Skeleton Skeleton
+            {
+                get
+                {
+                    return skel;
+                }
+            }
+
+            public SkeletonArgs(Skeleton skel)
+            {
+                this.skel = skel;
+            }
         }
     }
 }
