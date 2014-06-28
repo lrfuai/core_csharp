@@ -9,8 +9,7 @@ namespace LRFLibrary.Functional.Arm
 {
     class ArmAdapter : IArm
     {
-        Logical.Arm.IArm logicalArm;
-        byte algo = 1;
+        Logical.Arm.IArm logicalArm;        
 
         public ArmAdapter(Logical.Arm.IArm logicalArm)
         {
@@ -19,22 +18,23 @@ namespace LRFLibrary.Functional.Arm
 
         public void moveWristTo(float angle)
         {
-            this.logicalArm.moveWristTo(algo);
+            this.logicalArm.moveWristTo(angle);
+            //llamar al motor.girarGrados(angle)
         }
 
         public void moveElbowTo(float angle)
         {
-            this.logicalArm.moveElbowTo(algo);
+            this.logicalArm.moveElbowTo(angle);
         }
 
         public void moveBaseTo(float angle)
         {
-            this.logicalArm.moveBaseTo(algo);
+            this.logicalArm.moveBaseTo(angle);
         }
 
         public void moveShoulderTo(float angle)
         {
-            this.logicalArm.moveShoulderTo(algo);
+            this.logicalArm.moveShoulderTo(angle);
         }
     }
 }

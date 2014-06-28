@@ -9,11 +9,18 @@ namespace LRFLibrary.Logical.Arm
     class SerialArm : IArm
     {
         SerialPort serial;
+        const float maxDegrees = 90;
+        const float minDegrees = 0;
+
+        //Primer byte siempre 255 de Inicialización
+        byte[] comando = { 255, 0, 0 };
+
 
         private struct Joint {
-            public const string Wrist = "1";
-            public const string Elbow = "2";
-            public const string Base = "3";
+            public const int Base     = 1;
+            public const int Shoulder = 2;
+            public const int Elbow = 3;
+            public const int Wrist = 4;
         }
 
         public SerialArm(string com, int baudRate, int dataBits)
@@ -29,25 +36,44 @@ namespace LRFLibrary.Logical.Arm
             serial.Close();
         }
 
-        public void moveWristTo(byte postition)
+        public void moveWristTo(float degree)
         {
-            serial.Write(Joint.Wrist + postition.ToString());
+            writeSerial(Joint.Wrist, degree);                                    
         }
 
-        public void moveElbowTo(byte postition)
+        public void moveElbowTo(float degree)
         {
-            serial.Write(Joint.Elbow + postition.ToString()); 
+            writeSerial(Joint.Elbow, degree);                                    
         }
 
-        public void moveBaseTo(byte postition)
+        public void moveBaseTo(float degree)
         {
-            serial.Write(Joint.Base + postition.ToString()); 
+            writeSerial(Joint.Base, degree);                                    
         }
 
-
-        public void moveShoulderTo(byte postition)
+        public void moveShoulderTo(float degree)
         {
-            throw new NotImplementedException();
+            writeSerial(Joint.Shoulder, degree);                                    
+        }
+
+        private void writeSerial(int joint, float degree)
+        {
+            //Segundo byte es el servomotor
+            comando[1] = (byte)joint;
+            //Tercer byte es la posicion entre 0 y 254.
+            if (degree >= maxDegrees)
+            {
+                degree = maxDegrees;
+            }
+            if (degree <= minDegrees)
+            {
+                degree = minDegrees;
+            }
+
+            byte position = (byte)(degree * 254 / 90);
+
+            comando[2] = position;
+            serial.Write(comando, 0, 3);        
         }
     }
 }

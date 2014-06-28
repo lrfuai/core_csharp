@@ -7,9 +7,9 @@ namespace LRFLibrary.Logical.Arm
 {
     public interface IArm
     {
-        void moveWristTo(Byte postition);
-        void moveElbowTo(Byte postition);
-        void moveBaseTo(Byte postition);
-        void moveShoulderTo(Byte postition);
+        void moveWristTo(float degree);
+        void moveElbowTo(float degree);
+        void moveBaseTo(float degree);
+        void moveShoulderTo(float degree);
     }
 }
