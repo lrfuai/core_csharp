@@ -105,13 +105,15 @@ namespace LRFGame
         private SpriteFont font;
 
         //public RobotHandlerModule Follower;
-        public PeopleFollowerModule Follower;
+        //public PeopleFollowerModule Follower;
+        public ArmHandlerModule ArmHandler;
 
         public KinectSkleton()
         {
             //this.Follower = new RobotHandlerModule(FunctionalFaccade.getInstance().SkeletalTracker(), FunctionalFaccade.getInstance().Navigator());
-            this.Follower = new PeopleFollowerModule(FunctionalFaccade.getInstance().SkeletalTracker(), FunctionalFaccade.getInstance().Navigator());
-            this.Follower.run();
+            //(FunctionalFaccade.getInstance().SkeletalTracker(), FunctionalFaccade.getInstance().Navigator());
+            this.ArmHandler = new ArmHandlerModule(FunctionalFaccade.getInstance().SkeletalSelector(), FunctionalFaccade.getInstance().Arm());
+            this.ArmHandler.run();
             this.IsFixedTimeStep = false;
             this.IsMouseVisible = true;
             this.Window.Title = "Laboratorio Robótica Física de la UAI";
@@ -135,10 +137,10 @@ namespace LRFGame
             this.Services.AddService(typeof(KinectChooser), this.chooser);
 
             // Default size is the full viewport
-            this.colorStream = new ColorStreamRenderer(this, this.Follower);
+            this.colorStream = new ColorStreamRenderer(this, this.ArmHandler);
 
             // Calculate the minimized size and location
-            this.depthStream = new DepthStreamRenderer(this, this.Follower);
+            this.depthStream = new DepthStreamRenderer(this, this.ArmHandler);
             this.depthStream.Size = new Vector2(this.viewPortRectangle.Width / 4, this.viewPortRectangle.Height / 4);
             this.depthStream.Position = new Vector2(Width - this.depthStream.Size.X - 15, 85);
 

@@ -24,8 +24,9 @@ namespace LRFLibrary.Functional.Modules
         public static float AngleBetweenTwoVectors(Vector3 vectorA, Vector3 vectorB)
         {
             float dotProduct = 0.0f;
-            dotProduct=  Vector3.Dot( vectorA,  vectorB );
-            return (float)Math.Acos(dotProduct); 
+            dotProduct = Vector3.Dot(vectorA, vectorB) / (vectorA.Length() * vectorB.Length());
+            float result = MathHelper.ToDegrees((float) Math.Acos(dotProduct));
+            return result;
         }
 
         void _selector_onSkeletonUpdated(object sender, SkeletalSelector.SkeletonArgs e)
@@ -34,6 +35,12 @@ namespace LRFLibrary.Functional.Modules
                 e.Skeleton.Joints[JointType.HandRight].Position.X,
                 e.Skeleton.Joints[JointType.HandRight].Position.Y,
                 e.Skeleton.Joints[JointType.HandRight].Position.Z
+            );
+
+            Vector3 wrist = new Vector3(
+                e.Skeleton.Joints[JointType.WristRight].Position.X,
+                e.Skeleton.Joints[JointType.WristRight].Position.Y,
+                e.Skeleton.Joints[JointType.WristRight].Position.Z
             );
 
             Vector3 elbow = new Vector3(
@@ -48,24 +55,13 @@ namespace LRFLibrary.Functional.Modules
                 e.Skeleton.Joints[JointType.ShoulderRight].Position.Z
             );
 
-            Vector3 wrist = new Vector3(
-                e.Skeleton.Joints[JointType.WristRight].Position.X,
-                e.Skeleton.Joints[JointType.WristRight].Position.Y,
-                e.Skeleton.Joints[JointType.WristRight].Position.Z
-            );
-
-            Vector3 a1 = hand - elbow;
-            Vector3 a2 = elbow - elbow;
-            Vector3 a3 = elbow - shoulder;
-            //Vector3 a4 = elbow - shoulder;
-
-            //Vector3 a4 = a1 - a2;
+            this._arm.moveWristTo(AngleBetweenTwoVectors( hand - wrist, elbow - wrist ));
+            this._arm.moveElbowTo(AngleBetweenTwoVectors(wrist - elbow, shoulder - elbow));
             /*
-            this._arm.moveElbowTo(AngleBetweenTwoVectors(b1, b2));
-            this._arm.moveElbowTo(AngleBetweenTwoVectors(b1, b2));
-            this._arm.moveElbowTo(AngleBetweenTwoVectors(b1, b2));
+            this._arm.moveElbowTo(AngleBetweenTwoVectors(, b2));
             this._arm.moveElbowTo(AngleBetweenTwoVectors(b1, b2));
             */
+            
         }
 
         public void run()

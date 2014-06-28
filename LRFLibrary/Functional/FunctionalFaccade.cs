@@ -14,6 +14,7 @@ namespace LRFLibrary.Functional
     using Image.Recognizer;
     using LRFLibrary.Functional.Arm;
     using Skeletal.Condition;
+    using LRFLibrary.Functional.Modules;
 
     public class FunctionalFaccade
     {
@@ -35,88 +36,126 @@ namespace LRFLibrary.Functional
             logicalFaccade = Logical.LogicalFaccade.getInstance();
         }
 
-        private SkeletalTracker tracker;
-        public SkeletalTracker SkeletalTracker()
+
+        private IModule _module;
+        public IModule Module
         {
-            if (tracker == null)
+            get
             {
-                tracker = new SkeletalTracker(logicalFaccade.Kinect());
+                if (_module == null)
+                {
+                    _module = new ArmHandlerModule(FunctionalFaccade.getInstance().SkeletalSelector, FunctionalFaccade.getInstance().Arm);
+                }
+                return _module;
             }
-            return tracker;
+        }
+
+        private SkeletalTracker tracker;
+        public SkeletalTracker SkeletalTracker
+        {
+            get
+            {
+                if (tracker == null)
+                {
+                    tracker = new SkeletalTracker(logicalFaccade.Kinect());
+                }
+                return tracker;
+            }
         }
 
         private SkeletalSelector selector;
-        public SkeletalSelector SkeletalSelector()
+        public SkeletalSelector SkeletalSelector
         {
-            if (selector == null)
+            get
             {
-                selector = new SkeletalSelector(SkeletalTracker(), new OneHandUp(), new NoHands() );
+                if (selector == null)
+                {
+                    selector = new SkeletalSelector(SkeletalTracker, new OneHandUp(), new NoHands());
+                }
+                return selector;
             }
-            return selector;
         }
 
         private Positioner.Positioner positioner;
-        public IPositioner Positioner()
+        public IPositioner Positioner
         {
-            if (positioner == null)
+            get
             {
-                positioner = new Positioner.Positioner(new Point(20, 20), Direction.Right);
-                Navigator().NavigatorMovement += positioner.NavigatorMovementHandler;
+                if (positioner == null)
+                {
+                    positioner = new Positioner.Positioner(new Point(20, 20), Direction.Right);
+                    Navigator.NavigatorMovement += positioner.NavigatorMovementHandler;
+                }
+                return positioner;
             }
-            return positioner;
         }
 
         private INavigator navigator;
-        public INavigator Navigator()
+        public INavigator Navigator
         {
-            if (navigator == null)
+            get
             {
-                navigator = new LinearNavigator(new LogicalNavigatorAdapter(logicalFaccade.Navigator()));
+                if (navigator == null)
+                {
+                    navigator = new LinearNavigator(new LogicalNavigatorAdapter(logicalFaccade.Navigator()));
+                }
+                return navigator;
             }
-            return navigator;
         }
 
         private BaseMapBuilder mapBuilder;
-        public IMapBuilder MapBuilder()
+        public IMapBuilder MapBuilder
         {
-            if(mapBuilder==null)
+            get
             {
-                mapBuilder = new BitmapMapBuilder(new Bitmap(400,400));
-                //mapBuilder = new BitmapMapBuilder(new Bitmap("C:\\Users\\Dellita-pc\\Desktop\\map.bmp"));
-                //mapBuilder = new KinectMapBuilder(Logical.Faccade.getInstance().Kinect());
-                Positioner().PositionChanged += mapBuilder.PositionChangedHandler;
+                if(mapBuilder==null)
+                {
+                    mapBuilder = new BitmapMapBuilder(new Bitmap(400,400));
+                    //mapBuilder = new BitmapMapBuilder(new Bitmap("C:\\Users\\Dellita-pc\\Desktop\\map.bmp"));
+                    //mapBuilder = new KinectMapBuilder(Logical.Faccade.getInstance().Kinect());
+                    Positioner.PositionChanged += mapBuilder.PositionChangedHandler;
+                }
+                return mapBuilder;
             }
-            return mapBuilder;
         }
 
         private GrammarRecognizer speechGrammarRecognizer;
-        public IGrammarRecognizer SpeechGrammarRecognizer()
+        public IGrammarRecognizer SpeechGrammarRecognizer
         {
-            if (speechGrammarRecognizer == null)
+            get
             {
-                speechGrammarRecognizer = new GrammarRecognizer(logicalFaccade.RecognitionEngine());
+                if (speechGrammarRecognizer == null)
+                {
+                    speechGrammarRecognizer = new GrammarRecognizer(logicalFaccade.RecognitionEngine());
+                }
+                return speechGrammarRecognizer;
             }
-            return speechGrammarRecognizer;
         }
         
         private ISpeechSynthesizer speechSynthesizer;
-        public ISpeechSynthesizer SpeechSynthesizer()
+        public ISpeechSynthesizer SpeechSynthesizer
         {
-            if (speechSynthesizer == null)
+            get
             {
-                speechSynthesizer = new SpeechSynthesizer(logicalFaccade.SpeechSynthesizer());
+                if (speechSynthesizer == null)
+                {
+                    speechSynthesizer = new SpeechSynthesizer(logicalFaccade.SpeechSynthesizer());
+                }
+                return speechSynthesizer;
             }
-            return speechSynthesizer;
         }
 
         private IArm arm;
-        public IArm Arm ()
+        public IArm Arm
         {
-            if (this.arm == null)
+            get
             {
-                this.arm = new ArmAdapter(logicalFaccade.Arm());
+                if (this.arm == null)
+                {
+                    this.arm = new ArmAdapter(logicalFaccade.Arm());
+                }
+                return this.arm;
             }
-            return this.arm;
         }
     }
 }

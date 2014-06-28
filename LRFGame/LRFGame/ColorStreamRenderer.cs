@@ -50,10 +50,10 @@ namespace LRFGame
         /// Initializes a new instance of the ColorStreamRenderer class.
         /// </summary>
         /// <param name="game">The related game object.</param>
-        public ColorStreamRenderer(Game game, PeopleFollowerModule Follower)
+        public ColorStreamRenderer(Game game, ArmHandlerModule ArmHandler)
             : base(game)
         {
-            this.skeletonStream = new SkeletonStreamRenderer(game, this.SkeletonToColorMap, Follower);
+            this.skeletonStream = new SkeletonStreamRenderer(game, this.SkeletonToColorMap, ArmHandler);
         }
 
         /// <summary>

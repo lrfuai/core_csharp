@@ -67,17 +67,18 @@ namespace LRFGame
         private SpriteFont font;
 
         //private RobotHandlerModule Follower;
-        private PeopleFollowerModule Follower;
+        //private PeopleFollowerModule Follower;
+        private ArmHandlerModule ArmHandler;
 
         /// <summary>
         /// Initializes a new instance of the SkeletonStreamRenderer class.
         /// </summary>
         /// <param name="game">The related game object.</param>
         /// <param name="map">The method used to map the SkeletonPoint to the target space.</param>
-        public SkeletonStreamRenderer(Game game, SkeletonPointMap map, PeopleFollowerModule Follower)
+        public SkeletonStreamRenderer(Game game, SkeletonPointMap map, ArmHandlerModule ArmHandler)
             : base(game)
         {
-            this.Follower = Follower;
+            this.ArmHandler = ArmHandler;
             this.mapMethod = map;
         }
 

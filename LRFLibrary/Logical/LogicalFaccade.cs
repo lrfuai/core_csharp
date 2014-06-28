@@ -38,7 +38,7 @@ namespace LRFLibrary.Logical
         private IArm _arm;
         public IArm Arm()
         {
-            if (_arm != null)
+            if (_arm == null)
             {
                 //_arm = new SerialArm("COM5", 19200, 8);
                 _arm = new NoArm();
