@@ -11,9 +11,10 @@ namespace LRFLibrary.Logical.Arm
         SerialPort serial;
 
         private struct Joint {
-            public const string Wrist = "1";
-            public const string Elbow = "2";
-            public const string Base = "3";
+            public const byte Base = 1;
+            public const byte Shoulder = 2;
+            public const byte Elbow = 3;
+            public const byte Wrist = 4;
         }
 
         public SerialArm(string com, int baudRate, int dataBits)
@@ -31,23 +32,29 @@ namespace LRFLibrary.Logical.Arm
 
         public void moveWristTo(byte postition)
         {
-            serial.Write(Joint.Wrist + postition.ToString());
+            serial.Write(createCommand(Joint.Wrist, postition), 0, 3);
         }
 
         public void moveElbowTo(byte postition)
         {
-            serial.Write(Joint.Elbow + postition.ToString()); 
+            serial.Write(createCommand(Joint.Elbow,postition) ,0 ,3); 
         }
 
         public void moveBaseTo(byte postition)
         {
-            serial.Write(Joint.Base + postition.ToString()); 
+            serial.Write( createCommand(Joint.Base, postition), 0, 3); 
         }
 
 
         public void moveShoulderTo(byte postition)
         {
-            throw new NotImplementedException();
+            serial.Write(createCommand(Joint.Shoulder, postition), 0, 3); 
+        }
+
+        private byte[] createCommand(byte joint, byte position)
+        {
+            byte[] comando = { 255, joint, position };
+            return comando;
         }
     }
 }
