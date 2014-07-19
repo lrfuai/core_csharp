@@ -40,8 +40,8 @@ namespace LRFLibrary.Logical
         {
             if (_arm == null)
             {
-                //_arm = new SerialArm("COM5", 19200, 8);
-                _arm = new NoArm();
+                _arm = new SerialArm("COM4", 9600, 8);
+                //_arm = new NoArm();
             }
             return _arm;
         }

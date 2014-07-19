@@ -29,83 +29,83 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Arm));
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.ElbowBtn = new System.Windows.Forms.Button();
+            this.ShoulderBtn = new System.Windows.Forms.Button();
+            this.WirstBtn = new System.Windows.Forms.Button();
+            this.BaseBtn = new System.Windows.Forms.Button();
+            this.WristTxt = new System.Windows.Forms.TextBox();
+            this.ElbowTxt = new System.Windows.Forms.TextBox();
+            this.ShoulderTxt = new System.Windows.Forms.TextBox();
+            this.BaseTxt = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // button1
+            // ElbowBtn
             // 
-            this.button1.Location = new System.Drawing.Point(348, 124);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(63, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Play";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.ElbowBtn.Location = new System.Drawing.Point(348, 124);
+            this.ElbowBtn.Name = "ElbowBtn";
+            this.ElbowBtn.Size = new System.Drawing.Size(63, 23);
+            this.ElbowBtn.TabIndex = 0;
+            this.ElbowBtn.Text = "Play";
+            this.ElbowBtn.UseVisualStyleBackColor = true;
+            this.ElbowBtn.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // ShoulderBtn
             // 
-            this.button2.Location = new System.Drawing.Point(234, 232);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(63, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Play";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.ShoulderBtn.Location = new System.Drawing.Point(234, 254);
+            this.ShoulderBtn.Name = "ShoulderBtn";
+            this.ShoulderBtn.Size = new System.Drawing.Size(63, 23);
+            this.ShoulderBtn.TabIndex = 1;
+            this.ShoulderBtn.Text = "Play";
+            this.ShoulderBtn.UseVisualStyleBackColor = true;
+            this.ShoulderBtn.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // WirstBtn
             // 
-            this.button3.Location = new System.Drawing.Point(111, 124);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(63, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Play";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.WirstBtn.Location = new System.Drawing.Point(111, 124);
+            this.WirstBtn.Name = "WirstBtn";
+            this.WirstBtn.Size = new System.Drawing.Size(63, 23);
+            this.WirstBtn.TabIndex = 2;
+            this.WirstBtn.Text = "Play";
+            this.WirstBtn.UseVisualStyleBackColor = true;
+            this.WirstBtn.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // BaseBtn
             // 
-            this.button4.Location = new System.Drawing.Point(278, 326);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(63, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Play";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.BaseBtn.Location = new System.Drawing.Point(278, 338);
+            this.BaseBtn.Name = "BaseBtn";
+            this.BaseBtn.Size = new System.Drawing.Size(63, 23);
+            this.BaseBtn.TabIndex = 3;
+            this.BaseBtn.Text = "Play";
+            this.BaseBtn.UseVisualStyleBackColor = true;
+            this.BaseBtn.Click += new System.EventHandler(this.button4_Click);
             // 
-            // textBox1
+            // WristTxt
             // 
-            this.textBox1.Location = new System.Drawing.Point(111, 98);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(63, 20);
-            this.textBox1.TabIndex = 4;
+            this.WristTxt.Location = new System.Drawing.Point(111, 98);
+            this.WristTxt.Name = "WristTxt";
+            this.WristTxt.Size = new System.Drawing.Size(63, 20);
+            this.WristTxt.TabIndex = 4;
             // 
-            // textBox2
+            // ElbowTxt
             // 
-            this.textBox2.Location = new System.Drawing.Point(348, 98);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(63, 20);
-            this.textBox2.TabIndex = 5;
+            this.ElbowTxt.Location = new System.Drawing.Point(348, 98);
+            this.ElbowTxt.Name = "ElbowTxt";
+            this.ElbowTxt.Size = new System.Drawing.Size(63, 20);
+            this.ElbowTxt.TabIndex = 5;
             // 
-            // textBox3
+            // ShoulderTxt
             // 
-            this.textBox3.Location = new System.Drawing.Point(234, 206);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(63, 20);
-            this.textBox3.TabIndex = 6;
+            this.ShoulderTxt.Location = new System.Drawing.Point(234, 228);
+            this.ShoulderTxt.Name = "ShoulderTxt";
+            this.ShoulderTxt.Size = new System.Drawing.Size(63, 20);
+            this.ShoulderTxt.TabIndex = 6;
             // 
-            // textBox4
+            // BaseTxt
             // 
-            this.textBox4.Location = new System.Drawing.Point(278, 300);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(63, 20);
-            this.textBox4.TabIndex = 7;
+            this.BaseTxt.Location = new System.Drawing.Point(278, 312);
+            this.BaseTxt.Name = "BaseTxt";
+            this.BaseTxt.Size = new System.Drawing.Size(63, 20);
+            this.BaseTxt.TabIndex = 7;
             // 
             // Arm
             // 
@@ -114,14 +114,14 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(585, 361);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BaseTxt);
+            this.Controls.Add(this.ShoulderTxt);
+            this.Controls.Add(this.ElbowTxt);
+            this.Controls.Add(this.WristTxt);
+            this.Controls.Add(this.BaseBtn);
+            this.Controls.Add(this.WirstBtn);
+            this.Controls.Add(this.ShoulderBtn);
+            this.Controls.Add(this.ElbowBtn);
             this.Name = "Arm";
             this.Text = "Prueba de Brazo";
             this.Load += new System.EventHandler(this.Arm_Load);
@@ -132,13 +132,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Button ElbowBtn;
+        private System.Windows.Forms.Button ShoulderBtn;
+        private System.Windows.Forms.Button WirstBtn;
+        private System.Windows.Forms.Button BaseBtn;
+        private System.Windows.Forms.TextBox WristTxt;
+        private System.Windows.Forms.TextBox ElbowTxt;
+        private System.Windows.Forms.TextBox ShoulderTxt;
+        private System.Windows.Forms.TextBox BaseTxt;
     }
 }

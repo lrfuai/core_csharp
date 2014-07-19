@@ -28,7 +28,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -84,6 +84,12 @@
     <Compile Include="Animals.Designer.cs">
       <DependentUpon>Animals.cs</DependentUpon>
     </Compile>
+    <Compile Include="Arm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Arm.Designer.cs">
+      <DependentUpon>Arm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ImageViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,9 @@
     </Compile>
     <EmbeddedResource Include="Animals.resx">
       <DependentUpon>Animals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Arm.resx">
+      <DependentUpon>Arm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ImageViewer.resx">
       <DependentUpon>ImageViewer.cs</DependentUpon>

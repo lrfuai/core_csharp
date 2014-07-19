@@ -27,9 +27,9 @@ namespace LRF_Presentation
         {
             InitializeComponent();
             this._animalGame = new AnimalsGameModule(
-                FunctionalFaccade.getInstance().SpeechGrammarRecognizer(),
-                FunctionalFaccade.getInstance().SpeechSynthesizer(),
-                FunctionalFaccade.getInstance().Navigator(),
+                FunctionalFaccade.getInstance().SpeechGrammarRecognizer,
+                FunctionalFaccade.getInstance().SpeechSynthesizer,
+                FunctionalFaccade.getInstance().Navigator,
                 0.7
             );
 
@@ -64,14 +64,14 @@ namespace LRF_Presentation
         private void btnStart_Click(object sender, EventArgs e)
         {
             _animalGame.run();
-            FunctionalFaccade.getInstance().SpeechGrammarRecognizer().start();
+            FunctionalFaccade.getInstance().SpeechGrammarRecognizer.start();
             _tournButtons();
         }
 
         private void btnStop_Click(object sender, EventArgs e)
         {
             _animalGame.stop();
-            FunctionalFaccade.getInstance().SpeechGrammarRecognizer().stop();
+            FunctionalFaccade.getInstance().SpeechGrammarRecognizer.stop();
             _tournButtons();
         }
 

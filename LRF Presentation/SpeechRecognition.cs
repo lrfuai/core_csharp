@@ -45,13 +45,13 @@ namespace LRF_Presentation
             groupAnimals.add(new Grammar(new GrammarBuilder(animals)));
             /*----------------------------------------*/
 
-            functional.SpeechGrammarRecognizer().recognizerUpdateCompleted += GRRecognizerUpdateCompleted;
-            functional.SpeechGrammarRecognizer().speechRecognized += GRSpeechRecognized;
+            functional.SpeechGrammarRecognizer.recognizerUpdateCompleted += GRRecognizerUpdateCompleted;
+            functional.SpeechGrammarRecognizer.speechRecognized += GRSpeechRecognized;
         }
 
         private void SpeechRecognition_Load(object sender, EventArgs e)
         {
-            functional.SpeechGrammarRecognizer().add(groupSalutation);
+            functional.SpeechGrammarRecognizer.add(groupSalutation);
         }
 
         private void GRSpeechRecognized(object sender, GRSpeechRecognizedEventArgs e)
@@ -65,7 +65,7 @@ namespace LRF_Presentation
         private void GRRecognizerUpdateCompleted(object sender, GRRecognizeUpdateCompletedEventArgs e)
         {
             if (! enabled) {
-                functional.SpeechGrammarRecognizer().start();
+                functional.SpeechGrammarRecognizer.start();
                 enabled = true;
             }
             MessageBox.Show("Listo para reconocer.");
@@ -97,12 +97,12 @@ namespace LRF_Presentation
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            functional.SpeechGrammarRecognizer().add(groupAnimals);
+            functional.SpeechGrammarRecognizer.add(groupAnimals);
         }
 
         private void btnQuitar_Click(object sender, EventArgs e)
         {
-            functional.SpeechGrammarRecognizer().remove(groupAnimals);
+            functional.SpeechGrammarRecognizer.remove(groupAnimals);
         }
 
         private void btnHablar_Click(object sender, EventArgs e)

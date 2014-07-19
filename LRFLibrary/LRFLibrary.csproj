@@ -33,10 +33,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Emgu.CV">
-      <HintPath>..\..\..\..\..\..\..\Emgu\emgucv-windows-universal-gpu 2.4.9.1847\bin\Emgu.CV.dll</HintPath>
+      <HintPath>..\..\..\..\Emgu\emgucv-windows-universal-cuda 2.9.0.1922\bin\Emgu.CV.dll</HintPath>
     </Reference>
     <Reference Include="Emgu.Util">
-      <HintPath>..\..\..\..\..\..\..\Emgu\emgucv-windows-universal-gpu 2.4.9.1847\bin\Emgu.Util.dll</HintPath>
+      <HintPath>..\..\..\..\Emgu\emgucv-windows-universal-cuda 2.9.0.1922\bin\Emgu.Util.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Kinect, Version=1.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Speech, Version=11.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">

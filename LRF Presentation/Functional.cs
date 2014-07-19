@@ -31,12 +31,12 @@ namespace LRF_Presentation
 
         private void Main_Load(object sender, EventArgs e)
         {
-            this.functionalFaccade.MapBuilder().MapChanged += MapChangedHandler;
-            this.functionalFaccade.Positioner().PositionChanged += PositionChangedHandler;
+            this.functionalFaccade.MapBuilder.MapChanged += MapChangedHandler;
+            this.functionalFaccade.Positioner.PositionChanged += PositionChangedHandler;
         }
 
         private INavigator Navigator() {
-            return functionalFaccade.Navigator();
+            return functionalFaccade.Navigator;
         }
 
         private void MapChangedHandler(object sender, IMap map)
@@ -46,22 +46,22 @@ namespace LRF_Presentation
 
         private void btnTurnLeft_Click(object sender, EventArgs e)
         {
-            this.functionalFaccade.Navigator().move(Movement.TurnLeft);
+            this.functionalFaccade.Navigator.move(Movement.TurnLeft);
         }
 
         private void btnTurnRight_Click(object sender, EventArgs e)
         {
-            this.functionalFaccade.Navigator().move(Movement.TurnRight);
+            this.functionalFaccade.Navigator.move(Movement.TurnRight);
         }
 
         private void btnMoveForward_Click(object sender, EventArgs e)
         {
-            this.functionalFaccade.Navigator().move(Movement.Forward);
+            this.functionalFaccade.Navigator.move(Movement.Forward);
         }
 
         private void btnMoveBackward_Click(object sender, EventArgs e)
         {
-            this.functionalFaccade.Navigator().move(Movement.Backward);
+            this.functionalFaccade.Navigator.move(Movement.Backward);
         }
 
         private void PositionChangedHandler(object sender, Point position, Direction direction)

@@ -28,12 +28,12 @@ namespace LRF_Presentation
 
             
             this._mainModule = new MainModule(
-                FunctionalFaccade.getInstance().SpeechGrammarRecognizer(),
-                FunctionalFaccade.getInstance().SpeechSynthesizer(),
+                FunctionalFaccade.getInstance().SpeechGrammarRecognizer,
+                FunctionalFaccade.getInstance().SpeechSynthesizer,
                 0.7
             );
             _mainModule.run();
-            FunctionalFaccade.getInstance().SpeechGrammarRecognizer().start();
+            FunctionalFaccade.getInstance().SpeechGrammarRecognizer.start();
         }
     }
 }

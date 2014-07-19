@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Alejandro\Documents\Sources\Core\KinectExplorer-WPF\obj\Debug\
+C:\Proyectos\LRFUAI\Core_CSHARP\KinectExplorer-WPF\obj\Debug\
 Microsoft.Samples.Kinect.KinectExplorer
 none
 false
 DEBUG;TRACE
-C:\Users\Alejandro\Documents\Sources\Core\KinectExplorer-WPF\App.xaml
+C:\Proyectos\LRFUAI\Core_CSHARP\KinectExplorer-WPF\App.xaml
 2-1367070121
 
-91883159300
-15-1864117745
+9-1385285243
+151305695720
 KinectWindow.xaml;MainWindow.xaml;
 
 True

@@ -16,7 +16,7 @@ namespace LRF_Presentation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Animals());
+            Application.Run(new Arm());
         }
     }
 }
