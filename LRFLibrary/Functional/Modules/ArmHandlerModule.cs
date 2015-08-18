@@ -57,6 +57,7 @@ namespace LRFLibrary.Functional.Modules
 
             this._arm.moveWristTo(AngleBetweenTwoVectors( hand - wrist, elbow - wrist ));
             this._arm.moveElbowTo(AngleBetweenTwoVectors( wrist - elbow, shoulder - elbow ));
+
             /*
             this._arm.moveElbowTo(AngleBetweenTwoVectors(, b2));
             this._arm.moveElbowTo(AngleBetweenTwoVectors(b1, b2));

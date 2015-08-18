@@ -86,11 +86,13 @@ namespace LRFLibrary.Functional.Modules
         public void run()
         {
             _recognizer.speechRecognized += this._speechRecognized;
+            _recognizer.start();
         }
 
         public void stop()
         {
             _recognizer.speechRecognized -= this._speechRecognized;
+            _recognizer.stop();
         }
 
         private void _loadGrammar()

@@ -29,7 +29,7 @@ namespace LRFLibrary.Logical
         {
             if (navigator == null)
             {
-                //navigator = new SerialNavigator("COM5", 19200, 8);
+                //navigator = new SerialNavigator("COM3", 19200, 8);
                 navigator = new NoNavigator();
             }
             return navigator;

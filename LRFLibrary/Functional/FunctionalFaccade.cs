@@ -44,7 +44,9 @@ namespace LRFLibrary.Functional
             {
                 if (_module == null)
                 {
-                    _module = new ArmHandlerModule(FunctionalFaccade.getInstance().SkeletalSelector, FunctionalFaccade.getInstance().Arm);
+                    //_module = new ArmHandlerModule(FunctionalFaccade.getInstance().SkeletalSelector, FunctionalFaccade.getInstance().Arm);
+                    //_module = new PeopleFollowerModule(FunctionalFaccade.getInstance().SkeletalTracker, FunctionalFaccade.getInstance().Navigator);
+                    _module = new AnimalsGameModule(SpeechGrammarRecognizer, SpeechSynthesizer, Navigator, 0.7);
                 }
                 return _module;
             }
